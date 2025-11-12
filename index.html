@@ -1,77 +1,173 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Your awesome title | Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</title>
-<meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="Your awesome title" />
-<meta property="og:locale" content="en_US" />
-<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description." />
-<meta property="og:description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description." />
-<link rel="canonical" href="http://localhost:4000/" />
-<meta property="og:url" content="http://localhost:4000/" />
-<meta property="og:site_name" content="Your awesome title" />
-<meta property="og:type" content="website" />
-<meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Your awesome title" />
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","description":"Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.","headline":"Your awesome title","name":"Your awesome title","url":"http://localhost:4000/"}</script>
-<!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Your awesome title" /></head>
-<body><header class="site-header" role="banner">
-
-  <div class="wrapper"><a class="site-title" rel="author" href="/">Your awesome title</a><nav class="site-nav">
-        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-        <label for="nav-trigger">
-          <span class="menu-icon">
-            <svg viewBox="0 0 18 15" width="18px" height="15px">
-              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
-            </svg>
-          </span>
-        </label>
-
-        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
-      </nav></div>
-</header>
-<main class="page-content" aria-label="Content">
-      <div class="wrapper">
-        <div class="home">
-<h2 class="post-list-heading">Posts</h2>
-    <ul class="post-list"><li><span class="post-meta">Nov 11, 2025</span>
-        <h3>
-          <a class="post-link" href="/jekyll/update/2025/11/11/welcome-to-jekyll.html">
-            Welcome to Jekyll!
-          </a>
-        </h3></li></ul>
-
-    <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p></div>
-
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>简约笔记</title>
+    <meta name="description" content="一个简约风格的个人博客，用于记录灵感与作品。">
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-wrapper">
+        <div class="brand">
+          <span class="brand-logo" aria-hidden="true">✦</span>
+          <div>
+            <a class="brand-name" href="/">简约笔记</a>
+            <p class="brand-tagline">写下思考，保持轻盈。</p>
+          </div>
+        </div>
+        <nav class="nav">
+          <a href="#posts">文章</a>
+          <a href="#projects">项目</a>
+          <a href="#about">关于</a>
+        </nav>
       </div>
-    </main><footer class="site-footer h-card">
-  <data class="u-url" href="/"></data>
+    </header>
 
-  <div class="wrapper">
+    <main>
+      <section class="hero">
+        <div class="container hero-content">
+          <div>
+            <p class="hero-kicker">Hi，我是某某</p>
+            <h1>专注构建优雅的数字体验</h1>
+            <p>
+              简约并不只是外观，更是信息传递与情绪的平衡。这里记录我的产品实验、设计细节与日常灵感。
+            </p>
+            <a class="primary-btn" href="#posts">浏览最新文章</a>
+          </div>
+          <div class="hero-card">
+            <p class="hero-card-title">最近状态</p>
+            <p class="hero-card-content">
+              正在迭代一个极简待办工具，尝试用更克制的交互提升用户专注度。
+            </p>
+          </div>
+        </div>
+      </section>
 
-    <h2 class="footer-heading">Your awesome title</h2>
+      <section id="posts" class="section">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <p class="section-kicker">Latest</p>
+              <h2>最新文章</h2>
+            </div>
+            <a class="subtle-link" href="posts/index.html">查看全部</a>
+          </div>
+          <div class="cards-grid">
+            <article class="card">
+              <p class="card-meta">2025.11.01 · 产品思考</p>
+              <h3><a href="posts/2025-11-01-design-notes.html">留白如何影响理解速度</a></h3>
+              <p>
+                探索在界面中保留适量留白如何帮助用户更快理解复杂信息，并提升整体体验的轻盈感。
+              </p>
+              <a class="card-link" href="posts/2025-11-01-design-notes.html">阅读全文</a>
+            </article>
+            <article class="card">
+              <p class="card-meta">2025.10.24 · 开发日志</p>
+              <h3><a href="posts/2025-10-24-dev-log.html">打造可复用的色彩系统</a></h3>
+              <p>
+                总结我在设计与开发之间搭建统一色彩系统的经历，让组件在不同平台上保持一致表现。
+              </p>
+              <a class="card-link" href="posts/2025-10-24-dev-log.html">阅读全文</a>
+            </article>
+            <article class="card">
+              <p class="card-meta">2025.09.30 · 笔记</p>
+              <h3><a href="posts/2025-09-30-note.html">专注模式下的写作套路</a></h3>
+              <p>
+                分享我在写作时常用的结构模板，帮助快速梳理思路，同时保留可读性与逻辑性。
+              </p>
+              <a class="card-link" href="posts/2025-09-30-note.html">阅读全文</a>
+            </article>
+          </div>
+        </div>
+      </section>
 
-    <div class="footer-col-wrapper">
-      <div class="footer-col footer-col-1">
-        <ul class="contact-list">
-          <li class="p-name">Your awesome title</li><li><a class="u-email" href="mailto:your-email@example.com">your-email@example.com</a></li></ul>
+      <section id="projects" class="section section-alt">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <p class="section-kicker">Works</p>
+              <h2>精选项目</h2>
+            </div>
+            <a class="subtle-link" href="projects/index.html">查看更多</a>
+          </div>
+          <div class="cards-grid projects">
+            <article class="card card-outline">
+              <h3>CalmDO</h3>
+              <p>
+                一款帮助知识工作者建立节奏的专注工具。用动效提示状态，让工作流更加沉浸。
+              </p>
+              <a class="card-link" href="#">项目介绍</a>
+            </article>
+            <article class="card card-outline">
+              <h3>Minimal UI 库</h3>
+              <p>
+                基于原子化设计原则搭建的组件库，旨在帮助同事快速构建一致、优雅的界面。
+              </p>
+              <a class="card-link" href="#">设计说明</a>
+            </article>
+            <article class="card card-outline">
+              <h3>Slow Letter</h3>
+              <p>
+                个人写作计划，每月输出长文或电子杂志，持续打磨叙事与视觉表达能力。
+              </p>
+              <a class="card-link" href="#">阅读合集</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section">
+        <div class="container about">
+          <div>
+            <p class="section-kicker">About</p>
+            <h2>关于我</h2>
+            <p>
+              产品设计师 / 前端探索者，关注体验、系统与工具的结合。我相信好的设计应该让人感到自在，同时也能激发行动。
+            </p>
+            <p>
+              如果你也在寻找简约优雅的协作方式，欢迎通过邮箱联系我：<a href="mailto:hello@example.com">hello@example.com</a>。
+            </p>
+          </div>
+          <ul class="about-list">
+            <li>
+              <span class="about-label">位置</span>
+              <span>杭州 · 远程协作</span>
+            </li>
+            <li>
+              <span class="about-label">擅长</span>
+              <span>产品策略 / 设计系统 / Web 前端</span>
+            </li>
+            <li>
+              <span class="about-label">当前关注</span>
+              <span>AI 辅助设计 / Motion 语言</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-wrapper">
+        <p>© <span id="year"></span> 简约笔记. 保持轻盈。</p>
+        <div class="footer-links">
+          <a href="https://github.com/your-name" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://twitter.com/your-name" target="_blank" rel="noopener">Twitter</a>
+          <a href="https://www.linkedin.com/in/your-name" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
       </div>
-
-      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyllrb"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyllrb</span></a></li></ul>
-</div>
-
-      <div class="footer-col footer-col-3">
-        <p>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</p>
-      </div>
-    </div>
-
-  </div>
-
-</footer>
-</body>
-
+      <script>
+        const yearSpan = document.getElementById("year");
+        yearSpan.textContent = new Date().getFullYear();
+      </script>
+    </footer>
+  </body>
 </html>
+

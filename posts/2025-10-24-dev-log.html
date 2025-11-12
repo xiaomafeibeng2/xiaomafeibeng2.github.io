@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>打造可复用的色彩系统 · 简约笔记</title>
+    <meta name="description" content="记录设计与开发协作中搭建色彩系统的经验。">
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-wrapper">
+        <div class="brand">
+          <span class="brand-logo" aria-hidden="true">✦</span>
+          <div>
+            <a class="brand-name" href="/">简约笔记</a>
+            <p class="brand-tagline">写下思考，保持轻盈。</p>
+          </div>
+        </div>
+        <nav class="nav">
+          <a href="../index.html#posts">文章</a>
+          <a href="../index.html#projects">项目</a>
+          <a href="../index.html#about">关于</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="section">
+      <article class="container post">
+        <p class="card-meta">2025 年 10 月 24 日 · 开发日志</p>
+        <h1>打造可复用的色彩系统</h1>
+        <div class="post-body">
+          <p>
+            当产品规模扩张时，色彩管理常常成为痛点。高饱和的强调色、无法复用的灰度、品牌色不统一，都会让体验显得杂乱。这篇记录整理了我在最近项目中设计色彩系统的一些经验。
+          </p>
+          <h2>色彩结构</h2>
+          <p>
+            我将色彩分成三个层级： Brand（品牌识别）、Semantic（语义反馈）和 Neutral（中性色）。每个层级都有明确的使用场景，避免在组件中随意取色。
+          </p>
+          <h2>设计与开发的接口</h2>
+          <p>
+            在设计稿中，我会标注 token 名称而不是 HEX 值；在代码中，则通过 CSS 变量或设计系统主题文件引用。例如：
+          </p>
+          <pre><code>:root {
+  --color-brand: #1f65ff;
+  --color-brand-soft: rgba(31, 101, 255, 0.12);
+  --color-success: #22c55e;
+  --color-danger: #ef4444;
+}</code></pre>
+          <p>
+            这样做的好处是，当品牌色有调整时，只需要在一个地方修改变量即可，全站同步。
+          </p>
+          <h2>测试与迭代</h2>
+          <p>
+            除了常规的深浅对比度检查，我还会制作一个“状态板”，列出所有组件在不同状态下的表现，以便快速识别不协调的组合。
+          </p>
+        </div>
+        <div class="post-end">
+          <a class="card-link" href="index.html">← 返回文章列表</a>
+        </div>
+      </article>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-wrapper">
+        <p>© <span id="year"></span> 简约笔记. 保持轻盈。</p>
+        <div class="footer-links">
+          <a href="https://github.com/your-name" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://twitter.com/your-name" target="_blank" rel="noopener">Twitter</a>
+          <a href="https://www.linkedin.com/in/your-name" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+      <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+      </script>
+    </footer>
+  </body>
+</html>
+

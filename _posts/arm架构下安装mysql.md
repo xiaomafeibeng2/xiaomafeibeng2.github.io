@@ -1,0 +1,80 @@
+# ARM架构下面安装mysql5.7.22
+
+
+
+下载地址为：https://obs.cn-north-4.myhuaweicloud.com/obs-mirror-ftp4/database/mysql-5.7.27-aarch64.tar.gz
+
+添加mysql用户组和mysql用户，用于隔离mysql进程
+
+```
+[root@arm ~]# groupadd -r mysql && useradd -r -g mysql -s /sbin/nologin -M mysql
+```
+
+安装依赖库
+
+```
+[root@arm ~]# yum install -y libaio*
+```
+
+下载解压Mysql
+
+```
+[root@arm ~]# wget https://obs.cn-north-4.myhuaweicloud.com/obs-mirror-ftp4/database/mysql-5.7.27-aarch64.tar.gz
+[root@arm ~]# tar xzvf mysql-5.7.27-aarch64.tar.gz -C /usr/local/
+```
+
+配置Mysql
+
+```
+[root@arm ~]# mv /usr/local/mysql-5.7.27-aarch64 /usr/local/mysql
+[root@arm ~]# mkdir -p /usr/local/mysql/logs
+[root@arm ~]# chown -R mysql:mysql /usr/local/mysql
+[root@arm ~]# ln -sf /usr/local/mysql/my.cnf /etc/my.cnf
+[root@arm ~]# cp -rf /usr/local/mysql/extra/lib* /usr/lib64/
+[root@arm ~]# mv /usr/lib64/libstdc++.so.6 /usr/lib64/libstdc++.so.6.old
+[root@arm ~]# ln -s /usr/lib64/libstdc++.so.6.0.24 /usr/lib64/libstdc++.so.6
+```
+
+设置开机启动
+
+```
+[root@arm ~]# cp -rf /usr/local/mysql/support-files/mysql.server /etc/init.d/mysqld
+[root@arm ~]# chmod +x /etc/init.d/mysqld
+[root@arm ~]# systemctl enable mysqld
+```
+
+添加环境变量
+
+```
+[root@ecs-arm ~]# vim /etc/profile
+export MYSQL_HOME=/usr/local/mysql
+export PATH=$PATH:$MYSQL_HOME/bin
+
+[root@ecs-arm ~]# source /etc/profile
+```
+
+初始化启动mysql
+
+```
+方式一：无密码初始化登录
+
+[root@ecs-arm ~]# mysqld --initialize-insecure --user=mysql --basedir=/usr/local/mysql --datadir=/usr/local/mysql/data
+[root@ecs-arm ~]# systemctl start mysqld
+[root@ecs-arm ~]# systemctl status mysqld
+
+# 设置数据库root的密码
+[root@ecs-arm ~]# mysql_secure_installation
+```
+
+```
+方式二：随机密码初始化登录
+# "–initialize"生成随机密码，在这里存储在/usr/local/mysql/logs/mysql-error.log
+[root@ecs-arm ~]# mysqld --initialize --user=mysql --basedir=/usr/local/mysql --datadir=/usr/local/mysql/data
+[root@ecs-arm ~]# systemctl start mysqld
+[root@ecs-arm ~]# systemctl status mysqld
+# 查看随机密码
+[root@ecs-arm ~]# cat /usr/local/mysql/logs/mysql-error.log | grep password
+```
+
+
+

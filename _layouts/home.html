@@ -1,0 +1,97 @@
+---
+layout: default
+---
+<div class="home">
+  <header class="home-header">
+    <h1 class="site-title">{{ site.title }}</h1>
+    <p class="site-description">{{ site.description }}</p>
+  </header>
+
+  <div class="home-content">
+    <!-- 文章列表 -->
+    <div class="posts" id="posts-container">
+      {% for post in site.posts %}
+      <article class="post-item" data-categories="{% for cat in post.categories %}{{ cat }} {% endfor %}">
+        <h2 class="post-title">
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        </h2>
+        <div class="post-meta">
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y年%m月%d日" }}</time>
+          {% if post.categories.size > 0 %}
+          <span class="post-categories">
+            {% for category in post.categories %}
+            <span class="category">{{ category }}</span>
+            {% endfor %}
+          </span>
+          {% endif %}
+        </div>
+        {% if post.excerpt %}
+        <div class="post-excerpt">
+          {{ post.excerpt | strip_html | truncatewords: 30 }}
+        </div>
+        {% endif %}
+      </article>
+      {% endfor %}
+    </div>
+
+    <!-- 分类目录 -->
+    <aside class="categories-sidebar">
+      <div class="categories-nav">
+        <h2 class="categories-title">分类目录</h2>
+        <div class="categories-list">
+          <a href="#all" class="category-link active" data-category="all">
+            <span class="category-name">全部</span>
+            <span class="category-count">({{ site.posts.size }})</span>
+          </a>
+          {% assign categories = site.posts | map: 'categories' | flatten | uniq | sort %}
+          {% for category in categories %}
+            {% assign count = 0 %}
+            {% for post in site.posts %}
+              {% if post.categories contains category %}
+                {% assign count = count | plus: 1 %}
+              {% endif %}
+            {% endfor %}
+            <a href="#{{ category }}" class="category-link" data-category="{{ category }}">
+              <span class="category-name">{{ category }}</span>
+              <span class="category-count">({{ count }})</span>
+            </a>
+          {% endfor %}
+        </div>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<script>
+  // 分类筛选功能
+  document.addEventListener('DOMContentLoaded', function() {
+    const categoryLinks = document.querySelectorAll('.category-link');
+    const postItems = document.querySelectorAll('.post-item');
+    
+    categoryLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const category = this.getAttribute('data-category');
+        
+        // 更新活动状态
+        categoryLinks.forEach(l => l.classList.remove('active'));
+        this.classList.add('active');
+        
+        // 筛选文章
+        postItems.forEach(post => {
+          if (category === 'all') {
+            post.style.display = 'block';
+          } else {
+            const postCategories = post.getAttribute('data-categories');
+            if (postCategories && postCategories.includes(category)) {
+              post.style.display = 'block';
+            } else {
+              post.style.display = 'none';
+            }
+          }
+        });
+      });
+    });
+  });
+</script>
+

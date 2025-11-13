@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'zh-CN' }}">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
+  {% seo %}
+</head>
+<body>
+  {% include header.html %}
+  <main class="main-content">
+    {{ content }}
+  </main>
+  {% include footer.html %}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/bash.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/javascript.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/java.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/sql.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/xml.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/json.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/yaml.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // 高亮所有代码块
+      document.querySelectorAll('pre code').forEach((block) => {
+        // 如果代码块没有 class，尝试从父元素获取语言信息
+        if (!block.className) {
+          // 检查是否有语言标识
+          const langMatch = block.parentElement.className.match(/language-(\w+)/);
+          if (langMatch) {
+            block.className = 'language-' + langMatch[1];
+          }
+        }
+        hljs.highlightElement(block);
+      });
+      
+      // 也尝试高亮所有 pre 标签内的代码
+      document.querySelectorAll('pre').forEach((pre) => {
+        if (pre.querySelector('code')) {
+          const code = pre.querySelector('code');
+          if (!code.className && !code.classList.contains('hljs')) {
+            hljs.highlightElement(code);
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>
+
